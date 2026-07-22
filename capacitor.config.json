@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.soundboard",
+  "appName": "My Soundboard",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

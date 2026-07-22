@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Soundboard</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="faceplate">
+    <div class="faceplate__brand">
+      <span class="brand-mark">◉</span>
+      <span class="brand-label">SB-1 <span class="brand-sub">soundboard unit</span></span>
+    </div>
+    <button id="modeToggle" class="switch" type="button" aria-pressed="false">
+      <span class="switch__label">EDIT</span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ===================== EDIT MODE ===================== -->
+    <section id="editView" class="panel">
+
+      <div class="panel__block">
+        <h2 class="plate-label">01 — unit settings</h2>
+        <div class="field-row">
+          <label class="field">
+            <span>App / APK name</span>
+            <input id="appNameInput" type="text" placeholder="My Soundboard" maxlength="50" />
+            <small>Shown as the Android app name. Baked in at build time — see README.</small>
+          </label>
+          <label class="field">
+            <span>Page title</span>
+            <input id="pageTitleInput" type="text" placeholder="My Soundboard" maxlength="60" />
+            <small>Heading shown inside the app.</small>
+          </label>
+        </div>
+      </div>
+
+      <div class="panel__block">
+        <h2 class="plate-label">02 — pads <span id="entryCount" class="plate-count">0</span></h2>
+        <div id="entryList" class="entry-list"></div>
+        <button id="addRow" class="btn btn--ghost" type="button">+ add pad</button>
+      </div>
+
+      <div class="panel__block panel__block--actions">
+        <button id="buildBtn" class="btn btn--primary" type="button">▶ Build soundboard</button>
+        <button id="exportBtn" class="btn btn--ghost" type="button">Export config.json</button>
+        <label class="btn btn--ghost btn--file">
+          Import config.json
+          <input id="importInput" type="file" accept="application/json" hidden />
+        </label>
+      </div>
+
+      <ul id="issueList" class="issue-list" hidden></ul>
+    </section>
+
+    <!-- ===================== BOARD MODE ===================== -->
+    <section id="boardView" class="board" hidden>
+      <h1 id="boardTitle" class="board__title">My Soundboard</h1>
+      <div id="padGrid" class="pad-grid"></div>
+      <p id="boardEmpty" class="board__empty" hidden>No valid pads yet. Switch to EDIT to add some.</p>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
